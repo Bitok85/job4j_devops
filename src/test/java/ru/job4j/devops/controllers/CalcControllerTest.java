@@ -62,4 +62,14 @@ class CalcControllerTest {
         assertThat(output.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
         assertThat(output.getBody()).isEqualTo(expected);
     }
+
+    @Test
+    public void whenNegativeNumberPlusPositive() {
+        var input = new TwoArgs(-1, 2);
+        var expected = new Result(1);
+        var output = new CalcController().summarise(input);
+        assertThat(output.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
+        assertThat(output.getBody()).isEqualTo(expected);
+    }
+
 }
